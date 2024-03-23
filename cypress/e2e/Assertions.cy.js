@@ -12,6 +12,12 @@ describe("Assetions demo", () => {
              .and("include", "orangehrmlive.com")
              .and("contain", "web/index.php")
          cy.title().should("contain", "Orange")
-         cy.get("img[alt='company-branding']").should("be.visible")
+         cy.get("img[alt='company-branding']").should("be.visible").and("exist")
+         cy.get("a").should("have.length","5")
+         cy.get(":nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input").type("Admin")
+         cy.get(":nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input").should("have.value","Admin")
+         cy.get(":nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input").type("admin123{enter}")
+         
+         
     })
 })
