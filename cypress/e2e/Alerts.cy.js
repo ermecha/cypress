@@ -21,5 +21,15 @@ it("Cancel click",()=>{
         cy.get("button[onclick='jsConfirm()']").click()
         cy.on("window:confirm",()=>false)
 })
+
+it.only("Prompt alert",()=>{
+         cy.visit("https://practice.cydeo.com/javascript_alerts")
+         cy.window().then((win)=>{
+            cy.stub(win,"prompt").returns("London")
+            
+         })
+         cy.get("button[onclick='jsPrompt()']").click()
+         
+    })
         
 })
